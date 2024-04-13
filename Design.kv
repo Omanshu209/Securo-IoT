@@ -50,3 +50,20 @@ MDBottomNavigation:
 				Image:
 					id : img_detected
 					source : "images/security_cam.png"
+	
+	MDBottomNavigationItem:
+		name : "images"
+		text : "FACES"
+		icon : "image-multiple"
+		
+		MDScrollView:
+			do_scroll_y : True
+			
+			MDGridLayout:
+				id : faces
+				cols : 2
+				row_default_height : (self.width - self.cols * self.spacing[0]) / self.cols
+				row_force_default : True
+				adaptive_height : True
+				padding : dp(10), dp(10)
+				spacing : dp(10)
