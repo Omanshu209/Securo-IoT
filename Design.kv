@@ -1,0 +1,52 @@
+MDBottomNavigation:
+	panel_color : 138 / 255, 43 / 255, 226 / 255, 1
+	text_color_normal : 0, 128 / 255, 128 / 255, 1
+	text_color_active : 0, 1, 1, 1
+	
+	MDBottomNavigationItem:
+		name : "camera"
+		text : "CAM"
+		icon : "brain"
+		
+		MDGridLayout:
+			cols : 2
+			size_hint_x : 1
+			
+			MDBoxLayout:
+				#rows : 2
+				orientation : "vertical"
+				size_hint_x : 0.5
+				
+				Camera:
+					id : cam
+					play : True
+					resolution : (640, 640)
+					size_hint_y : 0.75
+					pos_hint : {"center_x" : 0.5}
+				
+				MDBoxLayout:
+					cols : 2
+					size_hint_y : 0.25
+					spacing : 20
+					padding : 20
+					orientation : "horizontal"
+					
+					MDRoundFlatButton:
+						text : "Detect"
+						size_hint : 0.3, 0.8
+						on_press : app.predict_faces()
+					
+					MDRoundFlatButton:
+						text : "Verify"
+						size_hint : 0.3, 0.8
+			
+			MDCard:
+				elevation : 7
+				padding : 25
+				spacing : 25
+				orientation : "vertical"
+				size_hint_x : 0.45
+				
+				Image:
+					id : img_detected
+					source : "images/security_cam.png"
