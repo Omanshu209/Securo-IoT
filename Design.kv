@@ -39,6 +39,7 @@ MDBottomNavigation:
 					MDRoundFlatButton:
 						text : "Verify"
 						size_hint : 0.3, 0.8
+						on_press : app.verify_faces()
 			
 			MDCard:
 				elevation : 7
@@ -67,3 +68,16 @@ MDBottomNavigation:
 				adaptive_height : True
 				padding : dp(10), dp(10)
 				spacing : dp(10)
+	
+	MDBottomNavigationItem:
+		name : "status"
+		text : "STATUS"
+		icon : "lock"
+		
+		MDLabel:
+			id : status_label
+			text : "locked"
+			halign : "center"
+			theme_text_color : "Custom"
+			text_color : 1, 0, 0, 1
+			font_style : "H3"

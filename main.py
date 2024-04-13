@@ -9,7 +9,17 @@ from facenet_pytorch import MTCNN, InceptionResnetV1
 
 LabelBase.register(DEFAULT_FONT, "assets/nasalization.ttf")
 
-mtcnn = MTCNN(keep_all = True)
+mtcnn = MTCNN(keep_all = True).eval()
+resnet = InceptionResnetV1(pretrained = "vggface2").eval()
+
+embeddings_users = {}
+for user in os.listdir("users"):
+	for img in os.listdir(f"users/{user}"):
+		img_pil = Image.open(f"users/{user}/{img}")
+		aligned = mtcnn(img_pil)
+		embeddings = resnet(aligned).detach()
+		embeddings_users[user] = embeddings
+		print(1)
 
 class SecurityApp(MDApp):
 	
@@ -69,6 +79,28 @@ class SecurityApp(MDApp):
 				child.source = f"images/face{self.detect_num}.png"
 			else:
 				child.source = f"images/face{self.detect_num}_{child.id}.png"
+		
+		self.root.ids.status_label.text = "locked"
+		self.root.ids.status_label.text_color = (1, 0, 0, 1)
+	
+	def verify_faces(self):
+		def verify() -> bool:
+			for user in os.listdir("images"):
+				if user.startswith("face"):
+					image = Image.open(f"images/{user}")
+					aligned1 = mtcnn(image)
+					embed1 = resnet(aligned1).detach()
+					for ver_user in embeddings_users:
+						embed2 = embeddings_users[ver_user]
+						distance = (embed1 - embed2).norm().item()
+						
+						if(distance < 1):
+							return True
+			return False
+		
+		if(verify()):
+			self.root.ids.status_label.text = "unlocked"
+			self.root.ids.status_label.text_color = (0, 1, 0, 1)
 
 if __name__ == "__main__":
 	SecurityApp().run()
