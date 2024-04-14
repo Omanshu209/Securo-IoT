@@ -19,7 +19,6 @@ for user in os.listdir("users"):
 		aligned = mtcnn(img_pil)
 		embeddings = resnet(aligned).detach()
 		embeddings_users[user] = embeddings
-		print(1)
 
 class SecurityApp(MDApp):
 	
