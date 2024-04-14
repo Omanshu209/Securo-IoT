@@ -44,7 +44,7 @@ class SecurityApp(MDApp):
 					radius = 24, 
 					box_radius = [0, 0, 24, 24], 
 					box_color = (1, 1, 1, 0.2), 
-					source = f"images/security_cam.png", 
+					source = "images/security_cam.png", 
 					size_hint = (0.2, 0.2)
 				)
 			)
