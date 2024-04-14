@@ -76,9 +76,12 @@ class SecurityApp(MDApp):
 		
 		for child in self.root.ids.faces.children[:]:
 			if int(child.id) == 1:
-				child.source = f"images/face{self.detect_num}.png"
+				path = f"images/face{self.detect_num}.png"
 			else:
-				child.source = f"images/face{self.detect_num}_{child.id}.png"
+				path = f"images/face{self.detect_num}_{child.id}.png"
+			
+			child.source = path if os.path.exists(path) else "images/security_cam.png"
+			
 		
 		self.root.ids.status_label.text = "locked"
 		self.root.ids.status_label.text_color = (1, 0, 0, 1)
