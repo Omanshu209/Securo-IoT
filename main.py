@@ -84,9 +84,10 @@ class SecurityApp(MDApp):
 		
 		self.root.ids.status_label.text = "locked"
 		self.root.ids.status_label.text_color = (1, 0, 0, 1)
+		self.root.ids.identified_person.text = "Identified : None"
 	
 	def verify_faces(self):
-		def verify() -> bool:
+		def verify() -> tuple:
 			for user in os.listdir("images"):
 				if user.startswith("face"):
 					image = Image.open(f"images/{user}")
@@ -97,12 +98,14 @@ class SecurityApp(MDApp):
 						distance = (embed1 - embed2).norm().item()
 						
 						if(distance < 1):
-							return True
-			return False
+							return (True, ver_user)
+			return (False, "")
 		
-		if(verify()):
+		result = verify()
+		if(result[0]):
 			self.root.ids.status_label.text = "unlocked"
 			self.root.ids.status_label.text_color = (0, 1, 0, 1)
+			self.root.ids.identified_person.text = f"Identified : {result[1]}"
 
 if __name__ == "__main__":
 	SecurityApp().run()

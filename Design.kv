@@ -73,10 +73,26 @@ MDBottomNavigation:
 		text : "STATUS"
 		icon : "lock"
 		
-		MDLabel:
-			id : status_label
-			text : "locked"
-			halign : "center"
-			theme_text_color : "Custom"
-			text_color : 1, 0, 0, 1
-			font_style : "H3"
+		MDGridLayout:
+			rows : 2
+			size_hint : 1, 1
+			
+			MDLabel:
+				id : status_label
+				text : "locked"
+				halign : "center"
+				theme_text_color : "Custom"
+				text_color : 1, 0, 0, 1
+				font_style : "H3"
+				pos_hint : {"center_y" : 0.6}
+				size_hint_y : 0.8
+			
+			MDLabel:
+				id : identified_person
+				text : "Identified : None"
+				halign : "center"
+				theme_text_color : "Custom"
+				text_color : 211 / 255, 211 / 255, 211 / 255, 1
+				font_style : "H4"
+				pos_hint : {"center_y" : 0.2}
+				size_hint_y : 0.2
