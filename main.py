@@ -6,11 +6,13 @@ from kivymd.uix.imagelist.imagelist import MDSmartTile
 from kivymd.uix.label.label import MDLabel
 from kivy.core.text import LabelBase, DEFAULT_FONT
 from facenet_pytorch import MTCNN, InceptionResnetV1
+from ObjectRecognition.ObjectRecognition import ObjectRecogniser
 
 LabelBase.register(DEFAULT_FONT, "assets/nasalization.ttf")
 
 mtcnn = MTCNN(keep_all = True).eval()
 resnet = InceptionResnetV1(pretrained = "vggface2").eval()
+object_recogniser = ObjectRecogniser("ObjectRecognition/Model/ObjectClassification_CNN_ResNet18.pt")
 
 embeddings_users = {}
 for user in os.listdir("users"):
@@ -106,6 +108,12 @@ class SecurityApp(MDApp):
 			self.root.ids.status_label.text = "unlocked"
 			self.root.ids.status_label.text_color = (0, 1, 0, 1)
 			self.root.ids.identified_person.text = f"Identified : {result[1]}"
+	
+	def predict_object(self):
+		self.root.ids.cam2.export_to_png("images/clicked_image_2.png")
+		image = object_recogniser.transform_image(Image.open("images/clicked_image_2.png"))
+		prediction = object_recogniser.predict(image)
+		self.root.ids.object_label.text = f"Predicted : {prediction}"
 
 if __name__ == "__main__":
 	SecurityApp().run()
