@@ -6,8 +6,11 @@ Servo servoParcel;
 const int SERVO_DOOR_PIN = 9;
 const int SERVO_PARCEL_PIN = 10;
 const int BUZZER_PIN = 8;
+const int ECHO_PIN = 6;
+const int TRIGGER_PIN = 7;
 
 char serialInput;
+long time, distance;
 
 bool doorIsOpen = false;
 bool doorIsClosedPerm = false;
@@ -61,11 +64,25 @@ void unlockParcelBox()
 	}
 }
 
-void activateBuzzer()
+void activateBuzzer(int duration)
 {
 	digitalWrite(BUZZER_PIN, HIGH);
-	delay(3000);
+	delay(duration);
 	digitalWrite(BUZZER_PIN, LOW);
+}
+
+int measureDoorDistance()
+{
+	digitalWrite(TRIGGER_PIN, LOW);
+	delayMicroseconds(2);
+	
+	digitalWrite(TRIGGER_PIN, HIGH);
+	delayMicroseconds(10);
+	digitalWrite(TRIGGER_PIN, LOW);
+	
+	time = pulseIn(ECHO_PIN, HIGH);
+	distance = time * 0.0343 / 2; // Unit -> centimeters
+	return distance;
 }
 
 void setup()
@@ -74,6 +91,8 @@ void setup()
 	servoParcel.attach(SERVO_PARCEL_PIN);
 	
 	pinMode(BUZZER_PIN, OUTPUT);
+	pinMode(ECHO_PIN, INPUT);
+	pinMode(TRIGGER_PIN, OUTPUT);
 	
 	Serial.begin(9600);
 }
@@ -99,7 +118,7 @@ void loop()
 				break;
 			
 			case '3':
-				activateBuzzer();
+				activateBuzzer(3000);
 				break;
 			
 			case '4':
@@ -126,4 +145,8 @@ void loop()
 				break;
 		}
 	}
+	
+	distance = measureDoorDistance();
+	if(distance <= 5)
+		activateBuzzer(100);
 }
