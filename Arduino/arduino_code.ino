@@ -8,6 +8,10 @@ const int SERVO_PARCEL_PIN = 10;
 const int BUZZER_PIN = 8;
 const int ECHO_PIN = 6;
 const int TRIGGER_PIN = 7;
+const int LED_DOOR_GREEN_PIN = 4;
+const int LED_DOOR_RED_PIN = 5;
+const int LED_PARCEL_GREEN_PIN = 11;
+const int LED_PARCEL_RED_PIN = 12;
 
 char serialInput;
 long time, distance;
@@ -26,6 +30,8 @@ void unlockDoor()
 			delay(10);
 		}
 		
+		digitalWrite(LED_DOOR_GREEN_PIN, HIGH);
+		digitalWrite(LED_DOOR_RED_PIN, LOW);
 		doorIsOpen = true;
 	}
 }
@@ -40,6 +46,8 @@ void lockDoor()
 			delay(10);
 		}
 		
+		digitalWrite(LED_DOOR_GREEN_PIN, LOW);
+		digitalWrite(LED_DOOR_RED_PIN, HIGH);
 		doorIsOpen = false;
 	}
 }
@@ -54,6 +62,9 @@ void unlockParcelBox()
 			delay(10);
 		}
 		
+		digitalWrite(LED_PARCEL_GREEN_PIN, HIGH);
+		digitalWrite(LED_PARCEL_RED_PIN, LOW);
+		
 		delay(5000);
 		
 		for(int deg = 90 ; deg >= 0 ; deg -= 10)
@@ -61,6 +72,9 @@ void unlockParcelBox()
 			servoParcel.write(deg);
 			delay(10);
 		}
+		
+		digitalWrite(LED_PARCEL_GREEN_PIN, LOW);
+		digitalWrite(LED_PARCEL_RED_PIN, HIGH);
 	}
 }
 
@@ -93,6 +107,10 @@ void setup()
 	pinMode(BUZZER_PIN, OUTPUT);
 	pinMode(ECHO_PIN, INPUT);
 	pinMode(TRIGGER_PIN, OUTPUT);
+	pinMode(LED_DOOR_GREEN_PIN, OUTPUT);
+	pinMode(LED_DOOR_RED_PIN, OUTPUT);
+	pinMode(LED_PARCEL_GREEN_PIN, OUTPUT);
+	pinMode(LED_PARCEL_RED_PIN, OUTPUT);
 	
 	Serial.begin(9600);
 }
