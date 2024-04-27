@@ -19,7 +19,8 @@ MDBottomNavigation:
 				Camera:
 					id : cam
 					play : True
-					resolution : (640, 640)
+					index : 1
+					#resolution : (640, 640)
 					size_hint_y : 0.75
 					pos_hint : {"center_x" : 0.5}
 				
@@ -103,14 +104,8 @@ MDBottomNavigation:
 		icon : "alpha-o-box"
 		
 		MDGridLayout:
-			rows : 3
+			rows : 2
 			size_hint : 1, 1
-			
-			Camera:
-				id : cam2
-				play : True
-				size_hint_y : 0.7
-				pos_hint : {"center_x" : 0.5}
 			
 			MDLabel:
 				id : object_label
@@ -120,7 +115,7 @@ MDBottomNavigation:
 				text_color : 0, 0, 1, 1
 				font_style : "H3"
 				pos_hint : {"center_x" : 0.5}
-				size_hint_y : 0.1
+				size_hint_y : 0.7
 			
 			MDRoundFlatButton:
 				text : "Command"
