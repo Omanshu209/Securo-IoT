@@ -1,3 +1,6 @@
+import pathlib
+pathlib.PosixPath = pathlib.WindowsPath
+
 MODEL = 0 # {0, 1}
 MODELS = ["yolov5s.pt", "yolov5s_package_detection.pt"]
 
@@ -8,10 +11,13 @@ import numpy as np
 yolo = hub.load(
 	"ultralytics/yolov5", 
 	"custom", 
-	path = f"YOLOv5/{MODELS[MODEL]}"
+	path = f"YOLOv5/{MODELS[MODEL]}",
 )
 
-cap = cv2.VideoCapture(0)
+if MODEL == 1:
+	yolo.conf = 0.8
+
+cap = cv2.VideoCapture(1)
 
 while True:
 	ret, frame = cap.read()
