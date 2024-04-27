@@ -110,7 +110,7 @@ class SecurityApp(MDApp):
 			self.root.ids.identified_person.text = f"Identified : {result[1]}"
 	
 	def predict_object(self):
-		self.root.ids.cam2.export_to_png("images/clicked_image_2.png")
+		self.root.ids.cam.export_to_png("images/clicked_image_2.png")
 		image = object_recogniser.transform_image(Image.open("images/clicked_image_2.png"))
 		prediction = object_recogniser.predict(image)
 		self.root.ids.object_label.text = f"Predicted : {prediction}"
