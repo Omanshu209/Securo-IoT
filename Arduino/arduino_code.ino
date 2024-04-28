@@ -24,7 +24,7 @@ void unlockDoor()
 {
   if(!doorIsOpen && !doorIsClosedPerm)
   {
-    for(int deg = 0 ; deg <= 90 ; deg += 10)
+    for(int deg = 0 ; deg <= 90 ; deg += 1)
     {
       servoDoor.write(deg);
       delay(10);
@@ -40,7 +40,7 @@ void lockDoor()
 {
   if(doorIsOpen)
   {
-    for(int deg = 90 ; deg >= 0 ; deg -= 10)
+    for(int deg = 90 ; deg >= 0 ; deg -= 1)
     {
       servoDoor.write(deg);
       delay(10);
@@ -56,7 +56,7 @@ void unlockParcelBox()
 {
   if(parcelIsExpected)
   {
-    for(int deg = 0 ; deg <= 90 ; deg += 10)
+    for(int deg = 0 ; deg <= 90 ; deg += 1)
     {
       servoParcel.write(deg);
       delay(10);
@@ -67,7 +67,7 @@ void unlockParcelBox()
     
     delay(5000);
     
-    for(int deg = 90 ; deg >= 0 ; deg -= 10)
+    for(int deg = 90 ; deg >= 0 ; deg -= 1)
     {
       servoParcel.write(deg);
       delay(10);
@@ -114,6 +114,9 @@ void setup()
 
   digitalWrite(LED_DOOR_RED_PIN, HIGH);
   digitalWrite(LED_PARCEL_RED_PIN, HIGH);
+
+  servoDoor.write(0);
+  servoParcel.write(0);
   
   Serial.begin(9600);
 }
@@ -168,6 +171,6 @@ void loop()
   }
   
   distance = measureDoorDistance();
-  if(distance <= 15 && !doorIsOpen && distance != 0)
+  if(distance <= 7 && !doorIsOpen && distance != 0)
     activateBuzzer(100);
 }
