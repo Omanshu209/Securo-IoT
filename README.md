@@ -10,7 +10,7 @@
 							|
 							|--- ECHO ---> 6   (Arduino)
 							|
-HC-SR04 Ultrasonic Sensor --|
+HC-SR04 Ultrasonic Sensor ------------------------------|
 							|
 							|--- TRIG ---> 7   (Arduino)
 							|
@@ -20,7 +20,7 @@ HC-SR04 Ultrasonic Sensor --|
 
 				    |---- + ---> 4   (Arduino)
 				    |			
-LED (Door, Green) --|
+LED (Door, Green) ------------------|
 				    |
 				    |-- - -----> GND (Arduino)
 
@@ -28,7 +28,7 @@ LED (Door, Green) --|
 
 		 |---- + ---> 8   (Arduino)
 		 |
-Buzzer --|
+Buzzer ----------|
 		 |
 		 |-- - -----> GND (Arduino)
 
@@ -36,15 +36,15 @@ Buzzer --|
 
 				  	  |---- + ---> 12  (Arduino)
 				  	  |			
-LED (Parcel Box, Red) --|
-				 	   |
+LED (Parcel Box, Red) --------------------|
+					  |
 				  	  |-- - -----> GND (Arduino)
 
 
 
 					 |---> 5v  (Arduino)
 					 |
-Servo Motor (Door) --|---> 9   (Arduino)
+Servo Motor (Door) ----------------------|---> 9   (Arduino)
 					 |
 					 |---> GND (Arduino)
 
@@ -52,15 +52,15 @@ Servo Motor (Door) --|---> 9   (Arduino)
 
 				  	    |---- + ---> 11  (Arduino)
 				  	    |			
-LED (Parcel Box, Green) --|
-				 	     |
+LED (Parcel Box, Green) --------------------|
+				 	    |
 				  	    |-- - -----> GND (Arduino)
 
 
 
-					   	|---> 5v  (Arduino)
+					   	  |---> 5v  (Arduino)
 					 	  |
-Servo Motor (Parcel Box) --|---> 10  (Arduino)
+Servo Motor (Parcel Box) -------------------------|---> 10  (Arduino)
 					 	  |
 					 	  |---> GND (Arduino)
 
@@ -68,7 +68,7 @@ Servo Motor (Parcel Box) --|---> 10  (Arduino)
 
 				  |---- + ---> 5   (Arduino)
 				  |			
-LED (Door, Red) --|
+LED (Door, Red) ------------------|
 				  |
 				  |-- - -----> GND (Arduino)
 ```
