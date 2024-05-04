@@ -6,69 +6,69 @@
 ## Circuit
 
 ```
-							|--- VCC  ---> 5v  (Arduino)
-							|
-							|--- ECHO ---> 6   (Arduino)
-							|
-HC-SR04 Ultrasonic Sensor ------------------------------|
-							|
-							|--- TRIG ---> 7   (Arduino)
-							|
-							|--- GND  ---> GND (Arduino)
+                            |--- VCC  ---> 5v  (Arduino)
+                            |
+                            |--- ECHO ---> 6   (Arduino)
+                            |
+HC-SR04 Ultrasonic Sensor --|
+                            |
+                            |--- TRIG ---> 7   (Arduino)
+                            |
+                            |--- GND  ---> GND (Arduino)
 
 
 
-				    |---- + ---> 4   (Arduino)
-				    |			
-LED (Door, Green) ------------------|
-				    |
-				    |-- - -----> GND (Arduino)
+                    |---- + ---> 4   (Arduino)
+                    |            
+LED (Door, Green) --|
+                    |
+                    |-- - -----> GND (Arduino)
 
 
 
-		 |---- + ---> 8   (Arduino)
-		 |
-Buzzer ----------|
-		 |
-		 |-- - -----> GND (Arduino)
+         |---- + ---> 8   (Arduino)
+         |
+Buzzer --|
+         |
+         |-- - -----> GND (Arduino)
 
 
 
-				  	  |---- + ---> 12  (Arduino)
-				  	  |			
-LED (Parcel Box, Red) --------------------|
-					  |
-				  	  |-- - -----> GND (Arduino)
+                        |---- + ---> 12  (Arduino)
+                        |            
+LED (Parcel Box, Red) --|
+                        |
+                        |-- - -----> GND (Arduino)
 
 
 
-					 |---> 5v  (Arduino)
-					 |
-Servo Motor (Door) ----------------------|---> 9   (Arduino)
-					 |
-					 |---> GND (Arduino)
+                     |---> 5v  (Arduino)
+                     |
+Servo Motor (Door) --|---> 9   (Arduino)
+                     |
+                     |---> GND (Arduino)
 
 
 
-				  	    |---- + ---> 11  (Arduino)
-				  	    |			
-LED (Parcel Box, Green) --------------------|
-				 	    |
-				  	    |-- - -----> GND (Arduino)
+                          |---- + ---> 11  (Arduino)
+                          |            
+LED (Parcel Box, Green) --|
+                          |
+                          |-- - -----> GND (Arduino)
 
 
 
-					   	  |---> 5v  (Arduino)
-					 	  |
-Servo Motor (Parcel Box) -------------------------|---> 10  (Arduino)
-					 	  |
-					 	  |---> GND (Arduino)
+                           |---> 5v  (Arduino)
+                           |
+Servo Motor (Parcel Box) --|---> 10  (Arduino)
+                           |
+                           |---> GND (Arduino)
 
 
 
-				  |---- + ---> 5   (Arduino)
-				  |			
-LED (Door, Red) ------------------|
-				  |
-				  |-- - -----> GND (Arduino)
+                  |---- + ---> 5   (Arduino)
+                  |            
+LED (Door, Red) --|
+                  |
+                  |-- - -----> GND (Arduino)
 ```
