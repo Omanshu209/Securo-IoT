@@ -3,6 +3,21 @@
 <!-- ![IMG_20240430_220036](https://github.com/Omanshu209/Securo/assets/114089324/1b1eac7a-3e82-452f-8958-99c4051f9485)
 ![IMG_20240430_215654](https://github.com/Omanshu209/Securo/assets/114089324/7ffacae7-c7b7-46f0-8727-b15dcd60b207) -->
 
+## Components
+
+```
+1) Arduino Uno --------------------|
+2) Breadboard  --------------------|  
+3) HC-SR04 Ultrasonic Sensor ------|---> 1 (each)
+4) Buzzer      --------------------|
+
+5) LEDs (Green) -------------------|
+6) LEDs (Red)   -------------------|---> 2 (each)
+7) Servo Motors -------------------|
+
+8) Jumper Wires
+```
+
 ## Circuit
 
 ```
