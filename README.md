@@ -28,6 +28,10 @@ Securo
 8) Jumper Wires
 ```
 
+<img src = "https://github.com/Omanshu209/Securo-IoT/assets/114089324/e3c5be0a-7165-485e-850c-ba1cc98e55c1">
+</img>
+
+
 ## Circuit
 
 ```
@@ -97,3 +101,5 @@ LED (Door, Red) --|
                   |
                   |-- - -----> GND (Arduino)
 ```
+
+![](https://github.com/Omanshu209/Securo-IoT/assets/114089324/77a8b74f-7710-45c5-ba94-524b3a491d82)
