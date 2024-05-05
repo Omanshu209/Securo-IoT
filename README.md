@@ -28,8 +28,10 @@ Securo
 8) Jumper Wires
 ```
 
+<div align = "center">
 <img src = "https://github.com/Omanshu209/Securo-IoT/assets/114089324/e3c5be0a-7165-485e-850c-ba1cc98e55c1">
 </img>
+</div>
 
 
 ## Circuit
