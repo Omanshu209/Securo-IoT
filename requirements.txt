@@ -1,0 +1,9 @@
+kivy==2.0.0
+numpy>=1.21.2
+pyserial>=3.4
+kivymd==1.1.1
+pillow==10.1.0
+torch==1.9.1
+torchvision==0.10.0
+opencv-python>=4.1.1
+facenet-pytorch==2.5.3
